@@ -1,0 +1,21 @@
+Screen {
+    
+}
+
+#menu{
+    height:auto;
+    width:auto;
+}
+
+OptionList{
+    height:auto;
+    width:auto;
+    background:transparent;
+    border:none;
+    text-align:center;
+    text-style:none;
+}
+
+OptionList .option-list--option-highlighted{
+    text-style:bold;
+}

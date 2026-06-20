@@ -1,0 +1,18 @@
+[project]
+name = "typing"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "textual>=8.2.7",
+]
+
+[project.scripts]
+typing-game="typing_game.tui:main"
+
+[tool.uv]
+package=true
+
+[tool.setuptools]
+packages=["typing_game"]

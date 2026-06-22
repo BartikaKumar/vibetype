@@ -25,3 +25,7 @@ OptionList{
 OptionList .option-list--option-highlighted{
     text-style:bold;
 }
+
+.hidden{
+    display:None;
+}

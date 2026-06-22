@@ -4,30 +4,26 @@ from textual.containers import Vertical, CenterMiddle
 from textual.widgets import OptionList
 from textual.widgets.option_list import Option
 
-from .add_cust import AddCustom
 from .about import ShowAbout
 from .mode import ChooseMode
+from .show_stat import ShowStat
 
 class MenuScreen(BaseScreen):
 
     def action_show_about(self):
         self.app.push_screen(ShowAbout())
 
+    def action_choose_mode(self):
+        self.app.push_screen(ChooseMode())
+
     def action_show_stat(self):
-        self.app.push_screen(ChooseMode())
-
-    def action_add_custom(self):
-        self.app.push_screen(AddCustom())
-
-    def action_start_type(self):
-        self.app.push_screen(ChooseMode())
+        self.app.push_screen(ShowStat())
 
     def action_close_app(self):
         self.app.conn.close()
         self.app.exit()
 
     BINDINGS=[
-        ('a','add_custom','Add Custom Fact'),
         ('escape','close_app','Exit'),
     ]
 
@@ -40,7 +36,7 @@ class MenuScreen(BaseScreen):
         elif option_id=='show_stat':
             self.action_show_stat()
         elif option_id=='start_type':
-            self.action_start_type()
+            self.action_choose_mode()
 
     def compose_body(self):
         with CenterMiddle():

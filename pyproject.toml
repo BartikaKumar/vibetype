@@ -9,10 +9,10 @@ dependencies = [
 ]
 
 [project.scripts]
-typing-game="typing_game.tui:main"
+vibetype="vibetype.tui:main"
 
 [tool.uv]
 package=true
 
 [tool.setuptools]
-packages=["typing_game"]
+packages=["vibetype"]

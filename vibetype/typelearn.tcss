@@ -1,15 +1,21 @@
-Screen {
-    
+.cont{
+    height:auto;
+    width:100%;
+    margin:1;
+    align:center middle;
 }
 
-#menu{
-    height:auto;
-    width:auto;
+.header{
+    dock: top;
+    height: 1;
+    content-align: center middle;
+    background: $panel;
 }
 
 OptionList{
     height:auto;
     width:auto;
+    align:center middle;
     background:transparent;
     border:none;
     text-align:center;

@@ -1,0 +1,1 @@
+VibeType is currently in development. The goal is to build a offline TUI typing application where you can type away with built-in sentence packs (can be used for learning), random words, or your own custom collections.

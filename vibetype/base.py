@@ -1,8 +1,6 @@
 from textual.screen import Screen
 from textual.widgets import Footer, Static
 
-
-
 class BaseScreen(Screen):
 
     def action_close_screen(self):

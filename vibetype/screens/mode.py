@@ -4,6 +4,7 @@ from textual.containers import Vertical, CenterMiddle
 from textual.widgets import OptionList
 from textual.widgets.option_list import Option
 
+
 from .type_space import StartType
 
 class ChooseMode(BaseScreen):

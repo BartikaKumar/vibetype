@@ -9,7 +9,8 @@
     dock: top;
     height: 1;
     content-align: center middle;
-    background: $panel;
+    background: $footer-background;
+    color:$footer-foreground;
 }
 
 OptionList{

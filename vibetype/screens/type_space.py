@@ -14,8 +14,7 @@ class StartType(BaseScreen):
 
             self.target=['the','quick','brown','fox']
             self.typed=['']*len(self.target)
-
-            self.cursor=0
+            
             self.at_word=0
 
     def render_text(self):

@@ -11,7 +11,8 @@ class VibeType(App):
 
     def on_mount(self) -> None:
         self.theme = "catppuccin-mocha"
-        self.conn=sqlite3.connect(Path(__file__).parent / 'data' / 'type_stats.db')
+        self.conn_data=sqlite3.connect(Path(__file__).parent / 'data' / 'vibetype_data.db')
+        self.conn_stats=sqlite3.connect(Path(__file__).parent / 'data' / 'vibetype_stats.db')
         self.push_screen(MenuScreen())
 
     CSS_PATH='typelearn.tcss'

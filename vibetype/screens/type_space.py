@@ -4,21 +4,31 @@ from textual.containers import Vertical, CenterMiddle
 from textual.widgets import Label
 from rich.text import Text
 
+import random
+
 class StartType(BaseScreen):
 
-    def __init__(self, mode='random'):
+    def __init__(self, mode='random'): # runs before compose
+
             super().__init__()
             self.mode=mode
 
             self.curr=''
             self.word=Text()
 
-            self.target=['the','quick','brown','fox']
+            cursor=self.app.conn_data.cursor()
+            cursor.execute(f"SELECT * FROM {self.mode}");
+
+            rows=cursor.fetchall()
+            row=random.choice(rows)
+
+            self.target=row[1].split(' ')
             self.typed=[None]*len(self.target)
             
             self.at_word=0
 
-    def on_mount(self):
+    def on_mount(self): # runs after compose
+
         self.target_widget=self.query_one("#target")
 
     def render_text(self):
@@ -31,11 +41,8 @@ class StartType(BaseScreen):
         while(pword<len(self.target)):
 
             if pword<self.at_word:
-                if(self.typed[pword].plain==self.target[pword]):
-                    full.append(self.target[pword],style=str(self.app.theme_variables['primary']))
-                else:
-                    full.append_text(self.typed[pword])
-
+                full.append_text(self.typed[pword])
+                    
             elif pword==self.at_word:
                 p=0
                 self.word=Text()

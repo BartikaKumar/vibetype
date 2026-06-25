@@ -1,341 +1,341 @@
-"sentence","related_fact"
-"Binary search works only when decisions form a monotonic pattern.","Each comparison discards candidates that cannot contain the answer."
-"Binary search can find the first position satisfying a condition.","The loop must preserve that every removed index is impossible."
-"Binary search over answers converts optimization into repeated feasibility checks.","The feasibility test must become consistently true or false across values."
-"A closed interval binary search must update boundaries carefully.","Wrong boundary updates can skip the only valid candidate."
-"An open interval search often simplifies first valid position logic.","Sentinel boundaries represent impossible positions outside the real array."
-"Binary search on sorted arrays assumes random access to middle elements.","Linked lists make middle access linear and destroy logarithmic benefit."
-"The midpoint should avoid overflow in fixed width integer languages.","Subtracting before adding keeps the computed index within range."
-"Binary search can return any matching duplicate unless adjusted.","Finding boundaries requires continuing after a successful comparison."
-"Lower bound finds the earliest index not smaller than a target.","Upper bound finds the earliest index strictly greater than a target."
-"Binary search termination depends on shrinking the search interval every step.","A non shrinking interval can create an infinite loop."
-"Rotated sorted arrays need identifying which half remains ordered.","The target can only be searched inside a valid ordered range."
-"Peak search works when a slope direction guarantees a peak.","Moving toward a larger neighbor preserves existence of a peak."
-"Binary search on real numbers needs iteration limits or precision thresholds.","Exact equality is unreliable with floating point comparisons."
-"Parametric search depends on proving answer space monotonicity.","Without monotonicity binary search may discard the correct region."
-"Binary search is logarithmic in the number of candidate positions.","The check cost multiplies the total running time."
-"A successful binary search proof tracks kept and discarded regions.","The answer must always remain inside the maintained search space."
-"Searching insertion position is a boundary problem not equality search.","The returned index may equal the array length."
-"Binary search can be applied to prefix based feasibility values.","The prefix property must not switch back after becoming valid."
-"Duplicates can hide the sorted half in rotated search.","Equal boundaries may force linear progress in the worst case."
-"Binary search is efficient because it halves uncertainty repeatedly.","Halving needs ordered information not merely stored data."
-"A monotonic stack keeps candidates in a useful sorted order.","Elements removed from the stack can never become future answers."
-"Increasing stacks help locate previous smaller relationships.","The stack top is the nearest surviving candidate by position."
-"Decreasing stacks help locate previous greater relationships.","Discarded smaller elements are dominated by the current larger element."
-"Monotonic stack algorithms usually scan each element once.","Every element is pushed once and popped at most once."
-"The stack stores indices when distances or positions matter.","Values alone lose information needed for span lengths."
-"A sentinel value can simplify empty stack edge cases.","Sentinels must not violate the ordering invariant."
-"Monotonic stacks are powerful for nearest neighbor queries.","They answer local dominance questions without nested scanning."
-"Choosing strict or non strict comparison controls duplicate behavior.","Equal values need a deliberate rule to avoid ambiguity."
-"A stack invariant should be true after every iteration.","Popping restores the invariant before inserting the current element."
-"Circular array stack logic often scans twice conceptually.","Modulo indexing can revisit positions without duplicating storage."
-"Monotonic stacks trade extra space for faster dominance queries.","The auxiliary stack uses linear space in the worst case."
-"Right to left scans reveal next relationships on the right.","Left to right scans reveal previous relationships on the left."
-"A popped element has found the first stronger element in scan direction.","The current element is nearest because intervening candidates were removed."
-"Stack based span calculations depend on previous blocking positions.","The distance to the blocker gives the valid range length."
-"Monotonic stacks fail when comparisons are not transitive.","Ordering must support safe domination between elements."
-"Histogram style reasoning uses bars as boundaries of influence.","A smaller bar ends the expansion of taller bars."
-"Many stack problems require storing unresolved candidates.","Resolution happens when a future element breaks their condition."
-"The stack order is about values while iteration order gives position.","Both pieces together encode nearest dominance information."
-"Monotonic stack proofs rely on dominated elements never returning.","Once popped an element cannot beat the new candidate later."
-"A monotonic queue extends the same idea to sliding windows.","Removing expired indices maintains validity of the window."
-"Sliding windows maintain information over a moving contiguous range.","The window changes incrementally instead of recomputing from scratch."
-"Fixed size windows update by adding one item and removing one item.","This keeps each window transition constant time."
-"Variable size windows need a condition that guides shrinking.","Without a clear condition the window may miss valid ranges."
-"Sliding windows work best when expanding only worsens or improves predictably.","Monotonic behavior tells when the left boundary can move."
-"Frequency maps let windows track character or value counts.","Updating counts must handle zero entries consistently."
-"A valid window invariant should be checked after each boundary move.","The invariant defines exactly what the stored state means."
-"Two pointer windows usually process every element a constant number of times.","This gives linear time despite nested looking loops."
-"Shrinking a window can restore a violated constraint.","Expansion explores new candidates while contraction removes stale influence."
-"Minimum window style tasks require updating answers after validity.","Recording too early can save invalid ranges."
-"Maximum window style tasks often update after expansion.","The best answer may appear before a later shrink."
-"Sliding windows require contiguous subarrays or substrings.","Non contiguous choices usually need different dynamic techniques."
-"Negative numbers can break sum based window monotonicity.","Prefix sums handle arbitrary signs more reliably."
-"A fixed window sum can be maintained with one rolling variable.","Subtracting the outgoing value preserves exact window total."
-"Window boundaries should have clear inclusive or exclusive meaning.","Mixed conventions create off by one length errors."
-"Counting distinct elements needs both frequencies and active distinct count.","The distinct count changes only when frequency crosses zero."
-"A window can store aggregated values if updates are reversible.","Non reversible summaries may require queues or additional structures."
-"Sliding windows are not just two indices moving randomly.","Their movement is justified by an invariant and monotonic condition."
-"Deque based windows maintain best candidates for each range.","Expired indices must be removed before trusting the front."
-"Window algorithms trade memory for fast constraint checking.","The stored state should answer validity without rescanning."
-"A good window proof explains why skipped ranges cannot be optimal.","Boundary movement must not discard a better unseen answer."
-"Two pointers reduce search by moving boundaries with purpose.","Each movement should eliminate a set of impossible pairs."
-"Opposite direction pointers often exploit sorted order.","Sorted comparisons reveal which side cannot help anymore."
-"Same direction pointers are common in partitioning tasks.","The slow pointer marks the boundary of processed valid data."
-"Two pointers can remove duplicates after sorting.","Skipping equal neighbors prevents repeated equivalent results."
-"Fast and slow pointers detect structure in linked lists.","Different speeds expose cycles through repeated node meetings."
-"Two pointer merging combines sorted sequences in linear time.","The next output always comes from the smaller current candidate."
-"Partition algorithms maintain regions with known properties.","The unknown region shrinks until every element is classified."
-"Two pointers are useful when choices depend on two ends.","Moving the worse side can preserve possible improvements."
-"Sorted two sum style reasoning relies on monotonic pair sums.","Increasing the left pointer raises the sum while decreasing right lowers it."
-"Two pointers can avoid quadratic checking in ordered data.","The ordering must justify discarding many pairs at once."
-"Stable partitioning is harder than simple two pointer swapping.","Preserving order may require extra memory or shifting."
-"A slow pointer can compact arrays in place.","It writes only values that should remain."
-"Fast pointers explore while slow pointers record progress.","This separation avoids overwriting unread input."
-"Two pointers need careful crossing conditions.","Processing after crossing can duplicate or invalidate pairs."
-"Linked list middle search uses fast and slow traversal.","Fast reaching the end leaves slow near the middle."
-"Pair counting with two pointers often counts ranges at once.","One comparison can imply many valid pairs in sorted arrays."
-"Two pointers are not limited to arrays.","They apply whenever traversal positions can eliminate choices."
-"Choosing which pointer moves is the core correctness argument.","A wrong movement can skip the only valid answer."
-"Two pointer methods often use constant extra space.","They may require sorting which changes total complexity."
-"Boundary conventions make pointer code easier to verify.","Clear meanings prevent missing first or last elements."
-"Linked lists support efficient insertion after a known node.","Finding that node still requires traversal from a reference."
-"Singly linked lists cannot move backward without extra storage.","Reverse traversal requires recursion stack or pointer reversal."
-"A dummy head simplifies deletion near the front.","It gives every real node a predecessor."
-"Reversing a linked list changes pointers one edge at a time.","The next pointer must be saved before rewiring."
-"Cycle detection works by comparing node identities not values.","Repeated values do not imply repeated nodes."
-"Fast and slow pointers meet if a cycle exists.","Inside a cycle relative speed closes the distance."
-"Linked list length is not available without traversal.","Many algorithms spend linear time just counting nodes."
-"Deleting a node needs access to its previous node.","Otherwise the incoming link cannot be updated directly."
-"Merging linked lists reuses nodes by relinking pointers.","This avoids allocating new list nodes unnecessarily."
-"Recursive list algorithms use call stack proportional to length.","Very long lists can risk stack overflow."
-"A tail pointer makes appending to a list constant time.","Without it each append may require walking to the end."
-"Doubly linked lists support removal with direct node access.","Extra backward pointers increase memory and update complexity."
-"Linked list algorithms are prone to lost sublists.","Temporary variables protect nodes before pointer changes."
-"Finding intersections depends on node reference equality.","Equal stored values are not enough to prove sharing."
-"Lists provide stable node addresses during insertions.","Arrays may move elements when resized or shifted."
-"Pointer reversal can solve some list tasks in constant space.","It temporarily destroys the original direction."
-"A sentinel node can represent empty list boundaries.","It reduces special cases for head and tail operations."
-"Linked lists have poor cache locality compared with arrays.","Pointer chasing can be slower despite good asymptotic bounds."
-"Splitting a list requires cutting the connecting pointer.","Otherwise both halves may still share a tail."
-"List invariants should state where each pointer chain begins.","Clear invariants prevent accidental cycles and leaks."
-"Tree recursion naturally follows parent to child structure.","Each call solves the same task on a smaller subtree."
-"A tree with n nodes has exactly n minus one edges.","This holds for connected acyclic undirected trees."
-"Tree height controls recursion depth and many operation costs.","Skewed trees can make height linear."
-"Balanced trees keep height logarithmic in the number of nodes.","This enables efficient search and update operations."
-"Preorder traversal visits a node before its children.","It is useful when parent information must be processed first."
-"Postorder traversal visits children before their parent.","It is useful when results depend on complete subtrees."
-"Inorder traversal has special meaning for binary search trees.","It lists values in sorted order."
-"Level order traversal groups nodes by depth.","It is usually implemented with breadth first search."
-"Tree diameter often combines two deepest child paths.","The best path may pass through the current node."
-"Subtree sizes can be computed with postorder recursion.","Each node contributes one plus sizes of its children."
-"Lowest common ancestor reasoning depends on ancestor relationships.","Returning signals from subtrees identifies where targets diverge."
-"Tree recursion needs a base case for empty children.","Null subtrees usually contribute neutral values."
-"A full binary tree has nodes with zero or two children.","This structural property helps count leaves and internal nodes."
-"A complete binary tree fills levels from left to right.","Heaps rely on this shape for array storage."
-"Tree traversals can be iterative with explicit stacks.","The stack replaces the hidden recursion call stack."
-"Recursive tree algorithms should avoid recomputing subtree results.","Repeated traversal can turn linear work into quadratic work."
-"Rooted trees assign direction from parent to children.","This simplifies depth and ancestor definitions."
-"A subtree is itself a valid tree.","This self similar property enables divide and conquer reasoning."
-"Tree path problems often require local and global answers.","The returned value may differ from the best overall value."
-"Binary tree width depends on positions not just node counts.","Missing nodes can affect conceptual level spacing."
-"Binary search tree ordering compares every node with allowed bounds.","Checking only direct children misses deeper violations."
-"BST search follows one branch after each comparison.","This gives logarithmic time only when height is logarithmic."
-"Inorder traversal of a valid BST yields increasing values.","Duplicates require a clearly defined placement policy."
-"BST insertion preserves ordering by descending to a leaf.","The new node attaches where the search terminates."
-"BST deletion is hardest when removing a node with two children.","Replacing with successor or predecessor preserves sorted order."
-"The successor is the smallest value greater than a node.","It is found by moving right then far left."
-"The predecessor is the largest value smaller than a node.","It is found by moving left then far right."
-"Unbalanced BSTs can degrade to linked list behavior.","Sorted insertion order is a common cause."
-"Self balancing trees rotate to restore height guarantees.","Rotations preserve inorder ordering while changing structure."
-"BST range queries prune branches outside the requested interval.","Ordering lets entire subtrees be skipped safely."
-"Validating a BST with bounds catches hidden ordering violations.","Each recursive call narrows the allowed value range."
-"BSTs support ordered operations that hash tables lack.","They can find neighbors and ranges efficiently."
-"A BST is not automatically balanced.","The shape depends on insertion order unless rebalanced."
-"Duplicate handling affects search and traversal semantics.","Consistent rules prevent equal keys from appearing unpredictably."
-"BST height is the key performance variable.","Node count alone does not guarantee fast operations."
-"Randomized treaps use priorities to balance expected height.","They combine binary search ordering with heap ordering."
-"AVL trees maintain stricter balance than red black trees.","This improves lookup height but can require more rotations."
-"Red black trees trade looser balance for fewer updates.","They keep operations logarithmic in the worst case."
-"BST iterators can use a stack for next smallest access.","The stack stores the path to future successors."
-"Order statistic trees store subtree sizes.","They can answer rank queries efficiently."
-"Heaps keep the best priority element at the root.","They do not keep all elements globally sorted."
-"A binary heap uses a complete tree shape.","Array indices can represent parent and child relationships."
-"Heap insertion bubbles the new element upward.","Swaps continue until the heap property is restored."
-"Heap removal replaces the root with the last element.","The replacement sinks until children no longer dominate it."
-"Heap peek is constant time while removal is logarithmic.","Only root access avoids restructuring."
-"Building a heap from an array is linear time.","Bottom up sinking is cheaper than repeated insertion."
-"Heaps are ideal for repeated minimum or maximum extraction.","They avoid sorting everything when only extremes matter."
-"A min heap returns the smallest priority first.","Changing priority requires locating the element efficiently."
-"Binary heaps do not support fast arbitrary deletion by default.","Extra index maps can repair this limitation."
-"Priority queues hide heap implementation details.","Their ordering depends on the comparator used."
-"Heap sort uses a heap to repeatedly select extremes.","It sorts in place but is not stable."
-"K way merging uses a heap of current candidates.","The heap size depends on the number of active sequences."
-"Streaming top elements can be tracked with a bounded heap.","Keeping only useful candidates saves memory."
-"A heap invariant is local between parents and children.","Local order is enough to guarantee root priority."
-"Dary heaps reduce height by increasing branching factor.","They trade fewer levels for more child comparisons."
-"Lazy deletion can simplify heap updates.","Stale entries are ignored when they reach the root."
-"Heaps handle dynamic priorities better than sorted arrays for insertions.","Sorted arrays provide faster scanning but slower insertion."
-"The heap root may not reveal the second best element directly.","Only its children are guaranteed immediate candidates."
-"Heap based graph algorithms rely on extracting tentative best states.","Duplicate entries may appear when decrease key is unavailable."
-"Median maintenance can use two heaps.","One heap stores lower values and the other stores upper values."
-"Graphs model relationships where nodes can have many neighbors.","Algorithm cost often depends on both vertices and edges."
-"Adjacency lists are efficient for sparse graphs.","Adjacency matrices allow constant time edge existence checks."
-"Directed edges have an orientation from one vertex to another.","Reachability can differ depending on traversal direction."
-"Undirected graphs store each edge in both neighbor lists.","This doubles adjacency entries but simplifies traversal."
-"Weighted graphs attach costs to edges.","Unweighted shortest path assumptions no longer apply."
-"A connected component is a maximal reachable group.","Traversals can label all vertices in one component."
-"Graph cycles can break simple tree recursion assumptions.","Visited sets prevent infinite revisiting."
-"Topological ordering exists only in directed acyclic graphs.","A cycle makes dependency ordering impossible."
-"Sparse graphs have far fewer edges than all possible pairs.","Adjacency lists usually save memory in such cases."
-"Dense graphs can make matrix representation reasonable.","Edge checks become fast at the cost of quadratic memory."
-"Graph traversal complexity is linear in vertices plus edges.","Each adjacency entry should be processed a bounded number of times."
-"Bipartite graphs can be colored using two colors.","An odd cycle makes such coloring impossible."
-"A graph can be disconnected even when every edge is valid.","Algorithms may need to start traversal from every vertex."
-"Shortest path strategy depends on edge weights.","Negative edges require algorithms designed for them."
-"Minimum spanning trees apply to connected weighted undirected graphs.","They connect all vertices with minimum total edge cost."
-"A tree is a connected graph without cycles.","Adding one extra edge creates exactly one cycle."
-"Degree counts incident edges of a vertex.","Directed graphs separate incoming and outgoing degree."
-"Graph representation should match the operations needed.","Fast traversal and fast edge lookup favor different structures."
-"State graphs can represent choices during search.","The number of states may exceed original input size."
-"Implicit graphs generate neighbors on demand.","This avoids storing every possible edge explicitly."
-"Depth first search explores as far as possible before backtracking.","The recursion stack records the current active path."
-"DFS can detect cycles using visitation states.","Gray nodes indicate an edge back to the active path."
-"DFS finishing times help reason about dependency order.","Later finishing nodes often appear earlier in topological order."
-"Recursive DFS may overflow on very deep graphs.","An explicit stack gives more control over memory."
-"DFS tree edges show how vertices were first discovered.","Other edges reveal cycles or cross connections."
-"Backtracking is DFS over a decision tree.","Undoing choices restores state for sibling branches."
-"DFS can compute connected components in undirected graphs.","Each fresh start discovers one whole component."
-"DFS preorder records discovery order.","Postorder records completion after exploring descendants."
-"Low link values identify bridges and articulation structure.","They track earliest reachable ancestors through back edges."
-"DFS on grids treats cells as graph vertices.","Neighbor generation replaces explicit adjacency lists."
-"A visited set is essential when graph paths can loop.","Without it DFS may never terminate."
-"DFS space depends on maximum recursion depth.","In the worst case that depth can be linear."
-"DFS is not guaranteed to find shortest paths in unweighted graphs.","It may follow a long branch before a short route."
-"DFS can test reachability between two vertices.","Stopping early saves work after the target is found."
-"Tree DFS does not require a visited set when parent links are absent.","Each child is reached through exactly one path."
-"DFS component labeling can support later queries.","Precomputed labels answer connectivity in constant time."
-"DFS order depends on neighbor ordering.","Different adjacency orders can produce different traversal sequences."
-"Path specific visited sets differ from global visited sets.","Backtracking sometimes must revisit vertices in different paths."
-"DFS correctness often uses induction on explored subtrees.","Each recursive call fully handles its reachable region."
-"Iterative DFS must push neighbors carefully for desired order.","Stack order reverses the sequence of exploration."
-"Breadth first search explores vertices by increasing distance.","This property gives shortest paths in unweighted graphs."
-"BFS uses layers to separate equal distance vertices.","The next layer is discovered from the current frontier."
-"A BFS queue stores vertices awaiting expansion.","First in first out order preserves distance layering."
-"BFS should mark vertices when enqueued.","Marking later can create duplicate queue entries."
-"Unweighted shortest paths rely on equal edge cost.","Weighted graphs need priority based methods instead."
-"BFS parent pointers can reconstruct shortest paths.","Each parent records the first discovery route."
-"Multi source BFS starts with many initial vertices.","Distances measure closeness to the nearest source."
-"Grid BFS treats neighboring cells as edges.","Bounds and blocked cells define valid neighbors."
-"BFS space can grow with the widest frontier.","Wide graphs may require large queues."
-"Level counting in BFS requires processing frontier sizes.","This separates nodes by distance correctly."
-"BFS can test bipartiteness using alternating colors.","An edge within the same color shows failure."
-"BFS on implicit graphs generates next states lazily.","Only reached states need memory."
-"Bidirectional BFS can reduce search depth.","It works best when start and target are both known."
-"BFS finds minimum number of edges not minimum total weight.","Edge weights change the meaning of distance."
-"Visited states in BFS should include all relevant state variables.","Ignoring state dimensions can merge different situations incorrectly."
-"BFS can solve shortest transformation problems over state spaces.","The graph need not be explicitly stored."
-"A queue based BFS is linear in reachable vertices and edges.","Each discovered vertex is expanded once."
-"BFS order among same depth nodes depends on neighbor order.","Shortest distance remains correct despite tie differences."
-"BFS in trees can compute depth without recursion.","The queue naturally processes nodes level by level."
-"BFS frontier expansion resembles wave propagation.","The first time a vertex is reached gives minimal steps."
-"Dynamic programming stores solutions to overlapping subproblems.","Reuse only helps when subproblems repeat."
-"A DP state must capture all information needed for future choices.","Missing information makes transitions incorrect."
-"Memoization computes states lazily through recursion.","Tabulation computes states in a chosen iterative order."
-"Transition order must respect dependencies between states.","A state cannot use values that are not ready."
-"DP recurrence correctness needs optimal substructure.","The best answer must be built from best smaller answers."
-"Base cases anchor dynamic programming recurrences.","Wrong base cases corrupt every dependent state."
-"One dimensional DP can sometimes replace a table.","Compression is valid only when old values are no longer needed."
-"Knapsack style DP often depends on iteration direction.","Wrong direction can reuse an item too many times."
-"Interval DP solves ranges by combining smaller intervals.","Increasing length order ensures dependencies are ready."
-"Tree DP combines answers from children.","Postorder traversal usually matches its dependency structure."
-"Digit DP tracks prefix constraints while counting numbers.","The tight flag records whether choices remain bounded."
-"Bitmask DP represents visited subsets as integer states.","It is powerful but grows exponentially with item count."
-"DP is not magic for every recursion.","Without repeated subproblems caching may not reduce complexity."
-"Greedy looking DP transitions still require exhaustive state comparison.","Local best choices may fail without proof."
-"DP complexity equals number of states times transition cost.","Reducing either part can change feasibility."
-"Memoization needs keys that uniquely represent subproblems.","Colliding or incomplete keys return wrong cached answers."
-"DP can optimize counting decision and feasibility tasks.","The state meaning changes but dependency reasoning remains similar."
-"Rolling arrays reduce memory from rows to recent layers.","They work when transitions use only limited previous layers."
-"DP proofs often use induction over state order.","Assume smaller states correct then prove current transition."
-"State explosion is the main limitation of dynamic programming.","Choosing compact states is often the real challenge."
-"Greedy algorithms make locally best choices at each step.","They require proof that local choices preserve global optimality."
-"An exchange argument can prove greedy correctness.","It transforms an optimal solution to include the greedy choice."
-"Greedy fails when early choices block better future combinations.","Counterexamples are useful for testing the idea."
-"Activity style selection works when earliest finishing leaves maximum room.","The proof relies on replacing the first chosen interval."
-"Greedy scheduling often sorts by a key first.","The sort order encodes the intended dominance relation."
-"A matroid structure can justify certain greedy algorithms.","Not every independence system supports greedy optimization."
-"Greedy algorithms are often faster than dynamic programming.","Speed is useless without a correctness proof."
-"Choosing smallest current cost can be wrong with negative consequences.","Future constraints may outweigh immediate savings."
-"Interval merging uses greedy extension after sorting by starts.","Once sorted the current merged end is enough state."
-"Prefix feasibility can guide greedy construction.","Each step maintains a condition that future steps can satisfy."
-"Greedy with heaps handles changing best candidates dynamically.","The heap exposes the next best available option."
-"Minimum spanning tree algorithms use safe edge choices.","The cut property proves certain edges can be chosen greedily."
-"Shortest path with nonnegative weights uses greedy distance finalization.","Negative edges can invalidate finalized distances."
-"Greedy proofs often identify a never harmful choice.","Such choices can be fixed before solving the remaining problem."
-"Sorting is frequently part of greedy design.","Order reveals which decisions dominate others."
-"A greedy invariant describes what is optimal after each step.","Without an invariant the strategy is only intuition."
-"Greedy algorithms can optimize memory by avoiding full tables.","They store only the current decisive information."
-"Tie breaking can affect implementation but not correctness.","The proof must handle equal priority choices."
-"Some greedy methods produce approximate not exact answers.","Approximation quality needs its own guarantee."
-"Greedy and DP can share subproblem intuition.","Greedy succeeds only when one transition always dominates."
-"Comparison sorting has a logarithmic lower bound.","Any comparison sort needs many comparisons in the worst case."
-"Stable sorting preserves relative order of equal keys.","This matters when sorting by multiple fields."
-"Merge sort guarantees logarithmic depth and linear merging.","It needs extra memory for temporary arrays."
-"Quick sort is fast on average but can degrade quadratically.","Bad pivot choices cause highly unbalanced partitions."
-"Heap sort sorts in place with guaranteed logarithmic extractions.","It is usually not stable."
-"Counting sort avoids comparisons by using key frequencies.","It requires a small integer key range."
-"Radix sort processes digits or characters in fixed passes.","It depends on stable intermediate sorting."
-"Sorting can enable two pointer and binary search techniques.","Order creates monotonic information for elimination."
-"Custom comparators must define consistent ordering.","Inconsistent comparisons can break sorting algorithms."
-"Insertion sort is efficient on nearly sorted data.","Small disorder causes few shifts and comparisons."
-"Selection sort performs few swaps but many comparisons.","It is rarely optimal for large inputs."
-"Bubble sort has simple mechanics but poor efficiency.","Its main value is educational not practical."
-"Merge sort is useful for linked lists.","It avoids expensive random access during splitting and merging."
-"Quick sort partitions around a pivot.","Elements on each side satisfy relative pivot conditions."
-"Stable multi key sorting can be done from least important key upward.","Earlier order remains within equal later keys."
-"Topological sorting is ordering not comparison sorting.","It respects dependencies rather than value comparisons."
-"Sorting changes input order unless a copy is used.","This can violate constraints that require original positions."
-"External sorting handles data too large for memory.","It sorts chunks then merges them from storage."
-"Sorting complexity may dominate an algorithm.","Linear post processing still leaves total logarithmic factor."
-"Partial sorting can be cheaper when only top elements matter.","Heaps or selection may avoid full ordering."
-"Hash tables use computed positions for expected fast access.","The hash function should spread keys evenly."
-"Collisions occur when distinct keys map to the same bucket.","Collision handling determines worst case behavior."
-"Worst case hash operations can become linear.","Adversarial inputs or poor hashing can destroy performance."
-"Load factor measures table fullness.","Rehashing keeps expected operations efficient."
-"Hash sets store membership without preserving order.","Use ordered structures when sorted traversal is required."
-"Hash maps associate keys with values.","Missing key handling must be explicit."
-"Immutable keys are safer for hash tables.","Changing a key can make its stored bucket wrong."
-"Prefix hashes can compare substrings efficiently.","Collision risk must be handled for correctness sensitive tasks."
-"Frequency maps convert repeated counting into constant expected updates.","They are common in window and grouping algorithms."
-"Hashing trades memory for faster lookup.","The extra storage often prevents repeated scanning."
-"Open addressing stores entries directly in the table.","Clustering can increase probe lengths."
-"Chaining stores collided keys in separate containers.","Long chains cause slower lookup."
-"A good hash key must include all relevant identity fields.","Incomplete keys merge distinct states incorrectly."
-"Hash based grouping depends on equal items sharing a key.","Canonical representations help group equivalent objects."
-"Sets can detect duplicates during a single scan.","The first repeated insertion reveals prior occurrence."
-"Hash maps have no guaranteed iteration order in many languages.","Relying on order can create hidden bugs."
-"Rehashing changes bucket positions but not logical contents.","Iterators or references may become invalid."
-"Rolling hash supports sliding substring fingerprints.","Removing the outgoing character requires reversible arithmetic."
-"Hashing floating point values can be risky.","Precision issues make equality and keys unstable."
-"Hash tables are excellent for exact lookup.","They do not support range queries efficiently."
-"Union find maintains disjoint groups under merge operations.","It answers whether two items share a representative."
-"Path compression flattens trees during find.","Future queries become faster after each compression."
-"Union by rank avoids attaching tall trees under short ones.","This keeps representative trees shallow."
-"Union by size attaches smaller sets under larger sets.","The larger tree height grows slowly."
-"Find returns the representative of an element set.","Representatives may change after union operations."
-"Union find is efficient for dynamic connectivity with only additions.","Edge deletions are not directly supported."
-"The amortized cost of union find is nearly constant.","This requires both compression and balanced union."
-"A union operation should merge representatives not raw nodes.","Merging raw nodes can corrupt the set structure."
-"Connected components can be tracked with union find.","Each successful union reduces the component count by one."
-"Cycle detection in undirected graphs can use union find.","An edge within the same set reveals a cycle."
-"Union find does not preserve the actual path between nodes.","It only stores component membership."
-"Path compression can be recursive or iterative.","Both aim to point nodes closer to the root."
-"Rank is an upper bound on tree height.","After compression it may not equal the real height."
-"Union find works on identifiers after mapping them to indices.","The mapping step is separate from the structure."
-"Rollback union find supports undoing merges.","It usually avoids path compression for easier reversal."
-"Weighted union find stores relationships to representatives.","It can track relative differences within components."
-"Union find is not suitable for ordered neighbor queries.","It knows groups but not internal arrangement."
-"Initial union find starts with every element alone.","Each item is its own representative."
-"The parent array encodes forest structure.","Roots are exactly elements whose parent is themselves."
-"Correctness relies on representatives uniquely identifying components.","Every member must eventually lead to the same root."
-"Arrays provide constant time access by index.","They require contiguous memory and fixed element positions."
-"Dynamic arrays resize by allocating larger backing storage.","Amortized append remains constant despite occasional copying."
-"Stacks follow last in first out order.","They naturally model nested or reversible processes."
-"Queues follow first in first out order.","They preserve arrival order for breadth style processing."
-"Deques support insertion and removal at both ends.","They are useful for maintaining window candidates."
-"Sets represent unique membership.","They avoid duplicates by equality checks."
-"Maps store associations from keys to values.","They replace repeated searches with direct lookup."
-"Tries store strings by shared prefixes.","They speed prefix queries at the cost of memory."
-"Segment trees answer range queries with point or range updates.","They trade linear memory for logarithmic operations."
-"Fenwick trees maintain prefix aggregates efficiently.","They require an invertible operation for range queries."
-"Sparse tables answer static range idempotent queries quickly.","Updates are not supported efficiently."
-"Disjoint sets represent partitions of elements.","They merge groups without listing all members."
-"Balanced trees keep sorted data with logarithmic operations.","They support predecessor successor and range queries."
-"Bitsets pack boolean states into machine words.","They can speed set operations through word level parallelism."
-"Priority queues return the highest priority item efficiently.","They do not support ordered iteration of all items."
-"Graphs can be stored using lists matrices or edge lists.","The best representation depends on traversal and query needs."
-"Choosing a data structure determines available invariants.","Algorithms become simpler when the structure matches operations."
-"Memory layout can affect real performance beyond big O.","Contiguous arrays often use cache better than pointer structures."
-"Immutable data structures simplify reasoning about shared state.","They may allocate more memory during updates."
-"A well chosen invariant makes data structures easier to verify.","Every operation should preserve the invariant after completion."
+sentence
+Binary search repeatedly halves a sorted range to find a target.
+Binary search needs sorted data or another monotonic search space.
+Binary search moves left when the midpoint is too large.
+Binary search moves right when the midpoint is too small.
+Binary search should calculate the midpoint without risking integer overflow.
+Binary search ends when the remaining search interval becomes empty.
+Lower bound binary search finds the first valid position.
+Upper bound binary search finds the first position after valid values.
+Binary search on answers tests whether a candidate value can work.
+Binary search must update boundaries so progress never stalls.
+Binary search comparisons decide which half can still contain the answer.
+Binary search can find insertion points without scanning every element.
+A monotonic stack keeps elements ordered while scanning through data.
+A monotonic stack removes weaker candidates before they become useless.
+Monotonic stacks often reveal the nearest greater or smaller element.
+A decreasing monotonic stack keeps larger values waiting for future comparisons.
+An increasing monotonic stack keeps smaller values waiting for future comparisons.
+A monotonic stack handles duplicates according to its comparison rule.
+Monotonic stacks store indices when distances between elements matter.
+Each element enters and leaves a monotonic stack at most once.
+A monotonic stack turns repeated backward searches into one forward pass.
+Monotonic stack logic depends on when old candidates stop helping.
+A monotonic stack pairs current values with earlier unresolved values.
+Monotonic stacks are useful when nearest boundaries matter.
+A sliding window processes contiguous ranges without restarting from scratch.
+Sliding windows grow while the current range remains useful.
+Sliding windows shrink when the current constraint is no longer satisfied.
+A fixed sliding window updates its answer after each shift.
+A variable sliding window changes size according to the active condition.
+Sliding window counters track what enters and leaves the range.
+A sliding window avoids recomputing totals for overlapping ranges.
+Sliding windows work when removing the left side restores validity.
+A sliding window usually moves each boundary forward only once.
+Sliding windows are strongest for contiguous subarrays and substrings.
+A sliding window turns many nested checks into a controlled scan.
+Sliding window state must match exactly what the current range contains.
+Two pointers scan data from different positions with coordinated movement.
+Opposite pointers work well when sorted order guides both directions.
+Two forward pointers can track a growing and shrinking range.
+Fast and slow pointers reveal patterns in linked list movement.
+Two pointers avoid comparing every possible pair in structured data.
+A left pointer often marks what should leave the current range.
+A right pointer often explores what should enter the current range.
+Two pointers need clear rules for moving each side safely.
+Crossing pointers usually means the search space has been exhausted.
+Two pointers can merge ordered sequences with steady progress.
+Slow pointers can lag behind fast pointers to find structural positions.
+Two pointer algorithms depend on useful relationships between positions.
+A linked list stores each element with a pointer to the next node.
+Singly linked lists move forward but cannot step backward directly.
+Doubly linked lists connect each node to both neighbors.
+Linked list insertion is cheap after the correct node is found.
+Linked list deletion carefully reconnects the neighboring nodes.
+A dummy node can simplify linked list edge cases.
+Linked lists trade fast indexing for flexible structure changes.
+Fast and slow pointers eventually meet inside a linked list cycle.
+Reversing a linked list changes every next pointer direction.
+Linked list traversal must stop when the next pointer disappears.
+A tail pointer makes appending to a linked list easier.
+Linked lists can represent queues without shifting stored elements.
+A tree connects nodes without forming cycles between parent and child links.
+Every tree node except the root has exactly one parent.
+A leaf node has no children and ends a tree branch.
+Tree height measures how far the deepest branch reaches.
+Tree depth measures how far a node sits below the root.
+Tree traversal visits nodes in a chosen structured order.
+Preorder traversal handles a tree node before its children.
+Inorder traversal visits the left branch before the current node.
+Postorder traversal handles children before returning to the parent node.
+A rooted tree gives every node a clear ancestor path.
+Balanced trees keep long branches from growing too unevenly.
+Tree recursion naturally follows the shape of each subtree.
+A binary search tree keeps smaller values on the left side.
+A binary search tree keeps larger values on the right side.
+Inorder traversal of a binary search tree visits values in order.
+Binary search tree lookup follows comparisons from root to leaf.
+A balanced binary search tree keeps operations close to logarithmic.
+Binary search tree insertion places a value where ordering remains valid.
+Binary search tree deletion must preserve the ordering rule.
+A binary search tree can become slow when badly unbalanced.
+Each subtree in a binary search tree must obey the same ordering rule.
+Binary search tree validation checks limits inherited from ancestors.
+The predecessor in a binary search tree lies just before a value.
+The successor in a binary search tree lies just after a value.
+A binary heap keeps the highest priority element at the top.
+A min heap quickly returns the smallest stored element.
+A max heap quickly returns the largest stored element.
+Heap insertion bubbles a new element upward until order returns.
+Heap removal pushes the replacement downward until order returns.
+Priority queues serve elements according to priority instead of arrival time.
+A heap stores a nearly complete binary tree inside an array.
+Heap order is weaker than sorted order but cheaper to maintain.
+Priority queues are useful when the next best choice changes often.
+A heap can keep only the most relevant candidates available.
+Heap construction can organize many elements faster than repeated insertion.
+The heap root always represents the current priority answer.
+A graph represents relationships using vertices connected by edges.
+Directed graphs give every edge a chosen direction.
+Undirected graphs allow movement across an edge both ways.
+Weighted graphs attach costs or distances to their edges.
+An adjacency list stores neighbors for each graph vertex.
+An adjacency matrix records whether pairs of vertices are connected.
+Sparse graphs usually prefer adjacency lists over dense matrices.
+Graph traversal must avoid revisiting the same vertices forever.
+A connected component contains vertices reachable from each other.
+Cycles appear when graph paths return to an earlier vertex.
+Topological order places directed dependencies before the tasks using them.
+Dijkstra's algorithm repeatedly expands the currently closest vertex.
+Depth first search follows one path before trying another branch.
+DFS uses recursion or a stack to remember unfinished branches.
+Every DFS path eventually reaches a point where backtracking begins.
+DFS marks visited vertices to avoid endless graph cycles.
+DFS explores tree branches naturally from parent to child.
+DFS finishing order can reveal useful dependency structure.
+Recursive DFS should define a clear base case before branching.
+DFS can count components by starting from each unvisited vertex.
+DFS path state must be undone carefully during backtracking.
+DFS stack depth grows with the longest active path.
+DFS is useful when reaching deep possibilities matters first.
+Depth first search treats each unexplored neighbor as a new branch.
+Breadth first search explores all nearest vertices before deeper ones.
+BFS uses a queue to process vertices in discovery order.
+BFS levels measure distance across unweighted graph edges.
+Breadth first search marks nodes when they enter the queue.
+BFS avoids repeated work by skipping already visited vertices.
+A BFS frontier contains vertices waiting at the current distance.
+BFS is reliable when every edge has equal cost.
+Breadth first search spreads outward like ripples from a start node.
+BFS parent links can reconstruct how a vertex was reached.
+Multi source BFS begins from several starting vertices together.
+BFS stops early when the target vertex is discovered.
+Queue order keeps breadth first search from jumping ahead unfairly.
+Dynamic programming avoids solving the same subproblem twice.
+Dynamic programming stores answers that future states can reuse.
+A DP state should describe exactly what information still matters.
+DP transitions move from known states toward larger answers.
+Memoization saves recursive dynamic programming results after first use.
+Tabulation fills dynamic programming states in dependency order.
+Dynamic programming needs overlapping subproblems and optimal structure.
+Space optimized DP keeps only states still needed later.
+A base case anchors dynamic programming before transitions begin.
+DP over intervals builds answers from smaller continuous pieces.
+DP over trees combines choices from child subtrees.
+Bitmask DP represents chosen items with compact binary states.
+A greedy algorithm makes the best local choice it can justify.
+Greedy algorithms need proof that local choices stay safe globally.
+A greedy strategy often sorts candidates before choosing among them.
+Greedy choices should never block a better required future.
+Exchange arguments help prove why a greedy choice is harmless.
+Greedy algorithms are simple only when the invariant is strong.
+A priority queue can support greedy decisions that change over time.
+Greedy scheduling often chooses candidates by a meaningful boundary.
+Greedy fails when early comfort hides a later cost.
+A greedy algorithm should commit only when reversal is unnecessary.
+Greedy reasoning asks which choice can be fixed first.
+Greedy algorithms shine when choices have a clear dominance rule.
+Sorting arranges data so later decisions become easier.
+Stable sorting preserves the relative order of equal elements.
+Merge sort divides data before merging ordered pieces.
+Quick sort partitions data around a selected pivot.
+Heap sort repeatedly removes the highest priority remaining element.
+Counting sort uses frequencies when values fit a limited range.
+Radix sort groups keys by digits or characters across passes.
+Insertion sort works well when the data is almost sorted.
+Sorting can reveal duplicates by placing equal values together.
+Sorted order often enables binary search and two pointer scans.
+Comparison sorting cannot beat its theoretical limit in general.
+Sorting by custom keys should match the intended decision rule.
+A sorted array trades update cost for faster ordered queries.
+Hashing maps keys to positions for fast lookup.
+A hash table stores pairs using computed bucket locations.
+Good hashing spreads keys evenly to reduce collisions.
+Collisions happen when different keys share a hash bucket.
+Hash maps usually provide fast average insert and search.
+Hash sets remember whether a value has appeared before.
+Frequency maps count how often each value occurs.
+Hashing is sensitive to key equality and hash consistency.
+Resizing a hash table helps keep buckets from becoming crowded.
+Ordered maps preserve order but usually cost more than hashing.
+Hash based lookup can replace repeated linear scans.
+A hash collision strategy decides where competing keys should live.
+Hashing works best when keys can be compared reliably.
+Union Find tracks which elements belong to the same group.
+DSU joins two groups by connecting their representatives.
+Union Find quickly checks whether two nodes already belong together.
+Path compression makes future Union Find searches shorter.
+Union by size keeps DSU trees from growing too tall.
+Union by rank attaches shallower DSU trees under deeper ones.
+A DSU representative names the current group for an element.
+Union Find is useful for merging components over time.
+DSU cannot easily split groups after they have been merged.
+Union Find operations become nearly constant with common optimizations.
+A failed DSU union can reveal that two endpoints were already connected.
+Union Find models connectivity without storing every path explicitly.
+DSU starts with every element in its own separate group.
+An array gives fast access when the index is already known.
+A stack removes the most recently added item first.
+A queue removes the earliest waiting item first.
+A deque supports insertion and removal from both ends.
+A set stores unique values without caring about duplicates.
+A map connects each key to its stored value.
+A tree set keeps unique values in sorted order.
+A linked queue avoids shifting elements during removal.
+A dynamic array grows when its current storage becomes full.
+A stack is natural for undoing decisions in reverse order.
+A queue is natural for fair first come processing.
+Choosing the right data structure often decides the algorithm's speed.
+Data structures shape how easily information can be updated.
+Algorithm design starts by naming the state that truly matters.
+A good invariant remains true before and after every step.
+Algorithm design improves when edge cases are handled deliberately.
+Breaking a problem into subproblems can reveal reusable structure.
+A brute force idea can expose what the optimized method must avoid.
+Algorithm correctness should explain why no valid case is missed.
+A loop invariant describes what progress has already been secured.
+Designing algorithms requires choosing what information to remember.
+A clean algorithm removes possibilities only with a reason.
+Algorithm design balances speed memory simplicity and proof.
+Testing tiny cases can challenge an algorithm's hidden assumptions.
+A stronger invariant often leads to a simpler implementation.
+Useful algorithms turn repeated work into maintained state.
+Time complexity estimates how running time grows with input size.
+Space complexity estimates how much extra memory an algorithm uses.
+Constant time operations do not grow with input length.
+Linear time algorithms touch input in proportion to its size.
+Logarithmic time appears when work repeatedly shrinks by a factor.
+Quadratic time often comes from comparing many pairs directly.
+Nested loops do not always mean quadratic complexity.
+Amortized analysis spreads rare expensive operations across many cheap ones.
+Worst case complexity protects against the hardest allowed input.
+Average case complexity depends on assumptions about typical inputs.
+Complexity analysis ignores constant factors but not growth patterns.
+Memory limits matter when an algorithm stores large auxiliary structures.
+An efficient algorithm improves the growth rate not just the syntax.
+Recursion solves a problem by calling itself on smaller cases.
+Every recursive algorithm needs a base case that eventually stops.
+Recursive calls wait on the call stack until deeper work finishes.
+Tail recursion returns the recursive result without extra pending work.
+Recursive tree algorithms often match the shape of the tree.
+Recursion can express divide and conquer ideas naturally.
+Too much recursion depth can overflow the call stack.
+A recursive function should make progress toward its base case.
+Backtracking recursion explores choices then restores the previous state.
+Recursive definitions become safer when arguments have clear meanings.
+Mutual recursion lets functions call each other toward shared progress.
+Memoized recursion turns repeated calls into stored results.
+Recursion is powerful when a smaller version resembles the whole problem.
+Prefix sums store cumulative totals for fast range queries.
+A prefix sum array answers range sums by subtracting two totals.
+Prefix sums avoid recomputing overlapping array sections repeatedly.
+Two dimensional prefix sums summarize rectangles inside a grid.
+Prefix sums require careful handling of the empty prefix.
+A running prefix sum can update while scanning left to right.
+Prefix counts track how many times categories appear before positions.
+Prefix sums transform many range questions into constant time lookups.
+Prefix sums work best when range contributions combine cleanly.
+A prefix maximum remembers the best value seen so far.
+A prefix minimum remembers the smallest value seen so far.
+Suffix sums mirror prefix sums from the opposite direction.
+Prefix structures make past information available without scanning again.
+A difference array records how ranges change instead of each element.
+Difference arrays apply range updates by marking only the boundaries.
+A final prefix pass converts differences back into actual values.
+Difference arrays are useful when many updates arrive before queries.
+Each difference array update adds at the start and removes after the end.
+Difference arrays reduce repeated range modifications to simple marks.
+A two dimensional difference array marks rectangle updates by corners.
+Difference arrays need careful boundary handling after the updated range.
+Difference arrays are less helpful when queries interrupt updates frequently.
+A difference array stores changes between neighboring positions.
+Range addition becomes cheap when represented through differences.
+Difference arrays pair naturally with prefix sums during reconstruction.
+A difference array turns bulk editing into delayed accumulation.
+Backtracking explores one choice then returns to try another.
+Backtracking removes a choice before leaving the current branch.
+A backtracking search prunes branches that cannot lead to success.
+Backtracking state should include only decisions currently on the path.
+Recursive backtracking works well for building combinations gradually.
+Backtracking can stop early when all required choices are made.
+A choice order can make backtracking much faster or slower.
+Backtracking separates choosing exploring and undoing each step.
+Pruning in backtracking saves time by rejecting hopeless branches.
+Backtracking is useful when many possible arrangements must be tested.
+A visited set prevents backtracking from reusing forbidden choices.
+Backtracking correctness depends on trying every allowed branch once.
+Backtracking feels like walking a maze with disciplined undo steps.
+Bit manipulation treats integers as compact sets of binary flags.
+A bit mask can record which options are currently selected.
+Setting a bit marks one feature as present.
+Clearing a bit marks one feature as absent.
+Toggling a bit flips a stored binary choice.
+Testing a bit checks whether a specific flag is active.
+Bit shifts move binary patterns left or right.
+The lowest set bit can isolate a useful binary position.
+Bitwise and keeps only positions active in both values.
+Bitwise or combines active positions from either value.
+Bitwise xor highlights positions where two values differ.
+Bit masks can represent subsets without storing separate lists.
+Bit manipulation often saves memory when choices are only yes or no.
+A trie stores strings by sharing common prefixes between paths.
+Trie lookup follows one character at a time from the root.
+A trie node often marks whether a complete word ends there.
+Tries answer prefix queries without scanning every stored word.
+A compressed trie reduces chains of nodes into longer labeled edges.
+Trie insertion creates missing character links along the word path.
+Deleting from a trie must preserve prefixes used by other words.
+A trie can store dictionaries for fast prefix based search.
+Each trie level corresponds to the next character position.
+Tries trade extra memory for quick string navigation.
+A binary trie stores numbers by following their bits.
+Trie performance depends more on key length than item count.
+Shared prefixes make tries efficient for related strings.
+A segment tree stores range information across layered intervals.
+Segment trees answer range queries by combining relevant pieces.
+Updating one element changes only intervals that contain it.
+A segment tree root summarizes the entire array.
+Segment tree leaves represent individual positions in the array.
+Lazy propagation delays range updates until affected nodes are needed.
+Segment trees support both updates and queries efficiently.
+Each segment tree node represents a continuous interval.
+Segment tree merging depends on the query operation being combineable.
+Range minimum queries can be maintained with a segment tree.
+Range maximum queries can be maintained with a segment tree.
+Segment trees use extra memory to gain flexible range operations.
+A dynamic segment tree creates nodes only for visited intervals.
+A Fenwick tree stores prefix information in compact indexed blocks.
+Fenwick trees answer prefix queries using binary index jumps.
+Updating a Fenwick tree touches the blocks that cover one position.
+A Fenwick tree is simpler than many segment tree variants.
+Fenwick tree queries climb through responsible prefix blocks.
+Fenwick tree updates move forward to larger covering blocks.
+The lowest set bit guides Fenwick tree movement.
+Fenwick trees work well for point updates and prefix sums.
+Range sums can use Fenwick prefixes and subtraction.
+Fenwick trees require one based indexing for their cleanest form.
+A Fenwick tree stores partial totals rather than the original array.
+Fenwick tree operations are logarithmic because indexes jump by bits.
+Fenwick trees are elegant when the operation supports prefix accumulation.
+Divide and conquer splits a problem before combining smaller answers.
+Divide and conquer works when subproblems can be solved independently.

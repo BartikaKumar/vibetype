@@ -1,7 +1,7 @@
 from vibetype.base import BaseScreen
 
 from textual.containers import Vertical, CenterMiddle
-from textual.widgets import Label
+from textual.widgets import Static
 from rich.text import Text
 
 import random
@@ -24,6 +24,7 @@ class StartType(BaseScreen):
 
             self.target=row[1].split(' ')
             self.typed=[None]*len(self.target)
+            self.typed_str=['']*len(self.target)
             
             self.at_word=0
 
@@ -78,12 +79,13 @@ class StartType(BaseScreen):
             elif len(self.curr)==0 and self.at_word>0:
                 self.at_word-=1
                 self.word=self.typed[self.at_word].copy()
-                self.curr=self.word.plain
+                self.curr=self.typed_str[self.at_word]
                 self.typed[self.at_word] = None
 
         elif event.key=='space':
             if self.curr and self.at_word<len(self.target)-1:
                 self.typed[self.at_word]=self.word.copy()
+                self.typed_str[self.at_word]=self.curr
                 self.curr=''
                 self.word=Text()
                 self.at_word+=1
@@ -94,10 +96,11 @@ class StartType(BaseScreen):
         self.render_text()
 
         if self.at_word==len(self.target)-1 and self.curr==self.target[-1]:
-            self.typed[self.at_word] = self.word
-            self.app.pop_screen()
+            self.typed[self.at_word] = self.word.copy()
+            self.typed_str[self.at_word]=self.curr
+            self.app.switch_screen(StartType(self.mode))
 
     def compose_body(self):
         with CenterMiddle():
             with Vertical(classes='cont'):
-                    yield Label(Text(' '.join(self.target)+' ',style=str(self.app.theme_variables['primary-muted'])),id='target')
+                    yield Static(Text(' '.join(self.target)+' ',style=str(self.app.theme_variables['primary-muted'])),id='target')

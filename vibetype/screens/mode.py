@@ -28,8 +28,8 @@ class ChooseMode(BaseScreen):
                 self.opentype('dsa')
             elif option_id=='mode_pokemon':
                 self.opentype('pokemon')
-            elif option_id=='mode_shakey':
-                self.opentype('shakey')
+            elif option_id=='mode_anime':
+                self.opentype('anime')
 
     def compose_body(self):
         with CenterMiddle():
@@ -45,5 +45,5 @@ class ChooseMode(BaseScreen):
                     None,
                     Option('Pokemon',id='mode_pokemon'),
                     None,
-                    Option('Shakespeare',id='mode_shakey'),
+                    Option('Anime',id='mode_anime'),
                 id='theme_modes',classes='hidden')

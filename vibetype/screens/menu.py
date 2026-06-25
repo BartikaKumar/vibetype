@@ -20,7 +20,8 @@ class MenuScreen(BaseScreen):
         self.app.push_screen(ShowStat())
 
     def action_close_app(self):
-        self.app.conn.close()
+        self.app.conn_data.close()
+        self.app.conn_stats.close()
         self.app.exit()
 
     BINDINGS=[

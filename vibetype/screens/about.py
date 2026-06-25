@@ -6,7 +6,7 @@ from textual.widgets import Static
 class ShowAbout(BaseScreen):
 
     def compose_body(self):
-        with Vertical(classes='cont'):
+        with Vertical(classes='cont about'):
                 yield Static(
                     "Welcome to VibeType!\n\n"
                     "Here you can type away with themed sentence packs, or just random words that make no sense. This is an offline, keyboard-first space that's entirely yours.\n\n"

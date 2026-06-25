@@ -1,8 +1,11 @@
 .cont{
-    height:auto;
     width:100%;
     margin:1;
     align:center middle;
+}
+
+.about{
+    height:auto;
 }
 
 .header{
@@ -29,4 +32,8 @@ OptionList .option-list--option-highlighted{
 
 .hidden{
     display:None;
+}
+
+#target{
+    text-align:center;
 }

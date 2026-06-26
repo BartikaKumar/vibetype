@@ -3,7 +3,7 @@ from vibetype.base import BaseScreen
 class ShowStat(BaseScreen):
 
     def load_stats(self):
-        cursor=self.app.conn.cursor()
+        cursor=self.app.conn_stats.cursor()
 
     def on_mount(self) -> None:
         self.load_stats()

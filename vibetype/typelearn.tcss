@@ -37,3 +37,8 @@ OptionList .option-list--option-highlighted{
 #target{
     text-align:center;
 }
+
+.results Static{
+    text-align:center;
+    margin:1;
+}

@@ -10,7 +10,8 @@ import time
 class StartType(BaseScreen):
 
     def action_close_screen(self):
-        self.app.current_sesh_rows=None
+        self.app.sesh_max=None
+        self.app.sesh_min=None
         super().action_close_screen()
 
     def __init__(self, mode='random'): # runs before compose
@@ -21,18 +22,24 @@ class StartType(BaseScreen):
             self.curr=''
             self.word=Text()
 
-            if self.app.current_sesh_rows is None:
+            cursor=self.app.conn_data.cursor()
+            if self.app.sesh_min is None:
+                self.app.sesh_min,self.app.sesh_max= cursor.execute(f"SELECT MIN(id), MAX(id) FROM {self.mode}").fetchone()
 
-                cursor=self.app.conn_data.cursor()
-                cursor.execute(f"SELECT * FROM {self.mode}");
-                self.app.current_sesh_rows=cursor.fetchall()
+            if mode=='random':
+                ids=random.sample(range(self.app.sesh_min,self.app.sesh_max+1),self.app.random_words)
+                placeholders=",".join("?"*len(ids))
+                rows=cursor.execute(f"SELECT word FROM {self.mode} WHERE id IN ({placeholders})",ids).fetchall()
+                self.sentence=" ".join(row[0] for row in rows)
+                self.details=""
 
-            row=random.choice(self.app.current_sesh_rows)
-            
-            self.sentence=row[1]
-            self.details=row[2]
+            else:  
+                id=random.randint(self.app.sesh_min,self.app.sesh_max)
+                row=cursor.execute(f"SELECT * FROM {self.mode} WHERE id={id}").fetchone()
+                self.sentence=row[1]
+                self.details=row[2]
 
-            self.target=row[1].split(' ')
+            self.target=self.sentence.split(' ')
             self.typed=[None]*len(self.target)
             self.typed_str=['']*len(self.target)
             
@@ -157,7 +164,7 @@ class StartType(BaseScreen):
             self.typed_str[self.at_word]=self.curr
 
             from .results import ResultScreen # lazy import to prevent circular import issue
-            self.app.switch_screen(ResultScreen(self.mode,self.sentence,self.details,raw_wpm,wpm,accuracy))
+            self.app.switch_screen(ResultScreen(self.mode,self.sentence,self.details,raw_wpm=raw_wpm,wpm=wpm,accuracy=accuracy))
 
     def compose_body(self):
         with CenterMiddle():

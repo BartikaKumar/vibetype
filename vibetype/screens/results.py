@@ -7,7 +7,8 @@ from .type_space import StartType
 class ResultScreen(BaseScreen):
 
     def action_close_screen(self):
-        self.app.current_sesh_rows=None
+        self.app.sesh_max=None
+        self.app.sesh_min=None
         super().action_close_screen()
 
     def action_next(self):
@@ -18,7 +19,7 @@ class ResultScreen(BaseScreen):
         ('enter','next','Next Sentence'),
     ]
 
-    def __init__(self,mode,sentence,details,raw_wpm,wpm,accuracy):
+    def __init__(self,mode,sentence='',details='',*,raw_wpm,wpm,accuracy):
         super().__init__()
         self.mode=mode
 

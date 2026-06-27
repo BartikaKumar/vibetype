@@ -5,6 +5,26 @@
 
 # cursor=conn_data.cursor()
 
+# with open("random.csv", newline="", encoding="utf-8") as f:
+#     reader = csv.DictReader(f)
+
+#     rows = [
+#         (r["word"],)
+#         for r in reader
+#     ]
+
+# cursor.execute("""
+# CREATE TABLE IF NOT EXISTS random(
+#     id INTEGER PRIMARY KEY,
+#     word TEXT
+# )
+# """)
+
+# cursor.executemany("""
+# INSERT INTO random(word)
+# VALUES (?)
+# """, rows)
+
 # with open("anime.csv", newline="", encoding="utf-8") as f:
 #     reader1 = csv.DictReader(f)
 

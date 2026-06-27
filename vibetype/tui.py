@@ -15,7 +15,10 @@ class VibeType(App):
         self.conn_data=sqlite3.connect(Path(__file__).parent / 'data' / 'vibetype_data.db')
         self.conn_stats=sqlite3.connect(Path(__file__).parent / 'data' / 'vibetype_stats.db')
 
-        self.current_sesh_rows=None
+        self.sesh_min=None
+        self.sesh_max=None
+
+        self.random_words=10
 
         self.push_screen(MenuScreen())
 

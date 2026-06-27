@@ -43,3 +43,28 @@ OptionList .option-list--option-highlighted{
     text-align:center;
     margin:1;
 }
+
+.stats Vertical{
+    align:center middle;
+    height:auto;
+    margin-bottom:1;
+}
+
+.stats Static{
+    text-align:center;
+    margin:1;
+}
+
+.horizontal Static{
+    margin-left:1;
+    margin-right:1;
+    width:auto;
+}
+
+.horizontal{
+    align:center middle;
+    height:auto;
+}
+.dropdown{
+    width:20;
+}

@@ -51,6 +51,24 @@ class StartType(BaseScreen):
 
         self.target_widget.update(Text(self.sentence+' ',style=str(self.app.theme_variables['primary-muted'])))
 
+    def save_stats(self,wpm,raw_wpm,accuracy):
+        cursor=self.app.conn_stats.cursor()
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS stats (
+                id INTEGER PRIMARY KEY,
+                mode TEXT NOT NULL,
+                wpm REAL NOT NULL,
+                raw_wpm REAL NOT NULL,
+                accuracy REAL NOT NULL,
+                created_at TEXT DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        cursor.execute("""
+            INSERT INTO stats(mode,wpm,raw_wpm,accuracy) 
+            VALUES(?,?,?,?)
+        """,(self.mode,wpm,raw_wpm,accuracy))
+        self.app.conn_stats.commit()
+
     def __init__(self, mode='random'): # runs before compose
             super().__init__()
             self.mode=mode
@@ -166,6 +184,8 @@ class StartType(BaseScreen):
 
             self.typed[self.at_word] = self.word.copy()
             self.typed_str[self.at_word]=self.curr
+
+            self.save_stats(wpm,raw_wpm,accuracy)
 
             if(self.mode=="random"):
                 self.load_screen(wpm,raw_wpm,accuracy)

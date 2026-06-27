@@ -4,8 +4,6 @@ An offline, keyboard-first typing application built with Python and Textual.
 
 VibeType is designed as a distraction-free space to type for fun, improve speed, and optionally learn through themed sentence packs.
 
----
-
 ## Features
 
 ### Typing Modes
@@ -25,7 +23,6 @@ VibeType is designed as a distraction-free space to type for fun, improve speed,
   - All-time
   - Latest 10 tests
 
-
 ### Philosophy
 
 - Offline first
@@ -33,16 +30,12 @@ VibeType is designed as a distraction-free space to type for fun, improve speed,
 - No accounts
 - No telemetry
 
----
-
 ## Tech Stack
 
 - Python
 - Textual
 - Rich
 - SQLite
-
----
 
 ## Installation
 
@@ -82,8 +75,6 @@ Alternatively, without installing the package:
 pip install -r requirements.txt
 python3 -m vibetype
 ```
-
----
 
 ## Future Ideas
 

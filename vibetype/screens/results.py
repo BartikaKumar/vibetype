@@ -1,6 +1,6 @@
 from vibetype.base import BaseScreen
 
-from textual.containers import Vertical, CenterMiddle
+from textual.containers import VerticalScroll, CenterMiddle
 from textual.widgets import Static
 from .type_space import StartType
 
@@ -31,7 +31,7 @@ class ResultScreen(BaseScreen):
 
     def compose_body(self):
         with CenterMiddle():
-            with Vertical(classes='cont results'):
+            with VerticalScroll(classes='cont results'):
                 yield Static(self.sentence)
                 if(self.details):
                     yield Static(self.details)

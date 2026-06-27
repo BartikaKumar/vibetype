@@ -1,106 +1,96 @@
-# import csv
-# import sqlite3
+import csv
+import sqlite3
 
-# conn_data=sqlite3.connect('vibetype_data.db')
+def main():
 
-# cursor=conn_data.cursor()
+    conn_data=sqlite3.connect('vibetype_data.db')
 
-# with open("random.csv", newline="", encoding="utf-8") as f:
-#     reader = csv.DictReader(f)
+    cursor=conn_data.cursor()
 
-#     rows = [
-#         (r["word"],)
-#         for r in reader
-#     ]
+    with open("random.csv", newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
 
-# cursor.execute("""
-# CREATE TABLE IF NOT EXISTS random(
-#     id INTEGER PRIMARY KEY,
-#     word TEXT
-# )
-# """)
+        rows = [
+            (r["word"],)
+            for r in reader
+        ]
 
-# cursor.executemany("""
-# INSERT INTO random(word)
-# VALUES (?)
-# """, rows)
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS random(
+        id INTEGER PRIMARY KEY,
+        word TEXT
+    )
+    """)
 
-# with open("anime.csv", newline="", encoding="utf-8") as f:
-#     reader1 = csv.DictReader(f)
+    cursor.executemany("""
+    INSERT INTO random(word)
+    VALUES (?)
+    """, rows)
 
-#     rows1 = [
-#         (r["sentence"],r["details"])
-#         for r in reader1
-#     ]
+    with open("anime.csv", newline="", encoding="utf-8") as f:
+        reader1 = csv.DictReader(f)
 
-# with open("dsa.csv", newline="", encoding="utf-8") as f:
-#     reader2 = csv.DictReader(f)
+        rows1 = [
+            (r["sentence"],r["details"])
+            for r in reader1
+        ]
 
-#     rows2 = [
-#         (r["sentence"],"")
-#         for r in reader2
-#     ]
+    with open("dsa.csv", newline="", encoding="utf-8") as f:
+        reader2 = csv.DictReader(f)
 
-# with open("pokemon.csv", newline="", encoding="utf-8") as f:
-#     reader3 = csv.DictReader(f)
+        rows2 = [
+            (r["sentence"],"")
+            for r in reader2
+        ]
 
-#     rows3 = [
-#         (r["sentence"],"")
-#         for r in reader3
-#     ]
+    with open("pokemon.csv", newline="", encoding="utf-8") as f:
+        reader3 = csv.DictReader(f)
 
-# cursor.execute("""
-# CREATE TABLE IF NOT EXISTS anime(
-#     id INTEGER PRIMARY KEY,
-#     sentence TEXT,
-#     details TEXT
-# )
-# """)
+        rows3 = [
+            (r["sentence"],"")
+            for r in reader3
+        ]
 
-# cursor.execute("""
-# CREATE TABLE IF NOT EXISTS dsa(
-#     id INTEGER PRIMARY KEY,
-#     sentence TEXT,
-#     details TEXT
-# )
-# """)
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS anime(
+        id INTEGER PRIMARY KEY,
+        sentence TEXT,
+        details TEXT
+    )
+    """)
 
-# cursor.execute("""
-# CREATE TABLE IF NOT EXISTS pokemon(
-#     id INTEGER PRIMARY KEY,
-#     sentence TEXT,
-#     details TEXT
-# )
-# """)
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS dsa(
+        id INTEGER PRIMARY KEY,
+        sentence TEXT,
+        details TEXT
+    )
+    """)
 
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS pokemon(
+        id INTEGER PRIMARY KEY,
+        sentence TEXT,
+        details TEXT
+    )
+    """)
 
-# # # print(rows)
+    cursor.executemany("""
+    INSERT INTO dsa(sentence,details)
+    VALUES (?,?)
+    """, rows2)
 
-# cursor.executemany("""
-# INSERT INTO dsa(sentence,details)
-# VALUES (?,?)
-# """, rows2)
+    cursor.executemany("""
+    INSERT INTO pokemon(sentence,details)
+    VALUES (?,?)
+    """, rows3)
 
-# cursor.executemany("""
-# INSERT INTO pokemon(sentence,details)
-# VALUES (?,?)
-# """, rows3)
+    cursor.executemany("""
+    INSERT INTO anime(sentence,details)
+    VALUES (?,?)
+    """, rows1)
 
-# cursor.executemany("""
-# INSERT INTO anime(sentence,details)
-# VALUES (?,?)
-# """, rows1)
+    conn_data.commit()
 
-# # cursor.execute("""
-# #     ALTER TABLE pokemon
-# #     ADD COLUMN details TEXT;
-# # """)
-
-# # cursor.execute("""
-# #     ALTER TABLE dsa
-# #     ADD COLUMN details TEXT;
-# # """)
-
-
-
-# conn_data.commit()
+if __name__=="__main__":
+    main()

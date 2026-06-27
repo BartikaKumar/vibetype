@@ -8,3 +8,6 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Locally saved in-built data csvs for future reference
+csvs/

@@ -9,6 +9,17 @@ class ShowStat(BaseScreen):
 
     def load_stats(self,mode=None):
         cursor=self.app.conn_stats.cursor()
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS stats (
+                id INTEGER PRIMARY KEY,
+                mode TEXT NOT NULL,
+                wpm REAL NOT NULL,
+                raw_wpm REAL NOT NULL,
+                accuracy REAL NOT NULL,
+                created_at TEXT DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        self.app.conn_stats.commit()
         if mode is None or mode=="all":
             all_stats=cursor.execute("""
                 SELECT
@@ -82,11 +93,11 @@ class ShowStat(BaseScreen):
 
         all_table.add_row("WPM",str(all_stats[0]),str(all_stats[1]))
         all_table.add_row("Raw WPM",str(all_stats[2]),str(all_stats[3]))
-        all_table.add_row("Accuracy",str(all_stats[4])+"%",str(all_stats[5])+"%")
+        all_table.add_row("Accuracy",str(all_stats[4]),str(all_stats[5]))
 
         l_table.add_row("WPM",str(latest_stats[0]),str(latest_stats[1]))
         l_table.add_row("Raw WPM",str(latest_stats[2]),str(latest_stats[3]))
-        l_table.add_row("Accuracy",str(latest_stats[4])+"%",str(latest_stats[5])+"%")
+        l_table.add_row("Accuracy",str(latest_stats[4]),str(latest_stats[5]))
 
         self.all_time.update(all_table)
         self.latest.update(l_table)

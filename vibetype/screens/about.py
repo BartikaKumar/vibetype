@@ -1,12 +1,12 @@
 from vibetype.base import BaseScreen
 
-from textual.containers import Vertical
+from textual.containers import VerticalScroll
 from textual.widgets import Static
 
 class ShowAbout(BaseScreen):
 
     def compose_body(self):
-        with Vertical(classes='cont about'):
+        with VerticalScroll(classes='cont about'):
                 yield Static(
                     "Welcome to VibeType!\n\n"
                     "Here you can type away with themed sentence packs, or just random words that make no sense. This is an offline, keyboard-first space that's entirely yours.\n\n"

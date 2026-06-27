@@ -14,46 +14,50 @@ class StartType(BaseScreen):
         self.app.sesh_min=None
         super().action_close_screen()
 
-    def __init__(self, mode='random'): # runs before compose
+    def load_screen(self,wpm=None,raw_wpm=None,accuracy=None):
+        self.curr=''
+        self.word=Text()
 
+        cursor=self.app.conn_data.cursor()
+        if self.app.sesh_min is None:
+            self.app.sesh_min,self.app.sesh_max= cursor.execute(f"SELECT MIN(id), MAX(id) FROM {self.mode}").fetchone()
+
+        if self.mode=='random':
+            ids=random.sample(range(self.app.sesh_min,self.app.sesh_max+1),self.app.random_words)
+            placeholders=",".join("?"*len(ids))
+            rows=cursor.execute(f"SELECT word FROM {self.mode} WHERE id IN ({placeholders})",ids).fetchall()
+            self.sentence=" ".join(row[0] for row in rows)
+            self.details=""
+
+        else:  
+            id=random.randint(self.app.sesh_min,self.app.sesh_max)
+            row=cursor.execute(f"SELECT * FROM {self.mode} WHERE id={id}").fetchone()
+            self.sentence=row[1]
+            self.details=row[2]
+
+        self.target=self.sentence.split(' ')
+        self.typed=[None]*len(self.target)
+        self.typed_str=['']*len(self.target)
+            
+        self.at_word=0
+
+        self.correct=0
+        self.incorrect=0
+
+        self.start_time=None
+
+        if wpm is not None:
+            self.query_one(".header").update(f"VibeType | WPM: {wpm} | Raw WPM: {raw_wpm} | Accuracy: {accuracy}")
+
+        self.target_widget.update(Text(self.sentence+' ',style=str(self.app.theme_variables['primary-muted'])))
+
+    def __init__(self, mode='random'): # runs before compose
             super().__init__()
             self.mode=mode
 
-            self.curr=''
-            self.word=Text()
-
-            cursor=self.app.conn_data.cursor()
-            if self.app.sesh_min is None:
-                self.app.sesh_min,self.app.sesh_max= cursor.execute(f"SELECT MIN(id), MAX(id) FROM {self.mode}").fetchone()
-
-            if mode=='random':
-                ids=random.sample(range(self.app.sesh_min,self.app.sesh_max+1),self.app.random_words)
-                placeholders=",".join("?"*len(ids))
-                rows=cursor.execute(f"SELECT word FROM {self.mode} WHERE id IN ({placeholders})",ids).fetchall()
-                self.sentence=" ".join(row[0] for row in rows)
-                self.details=""
-
-            else:  
-                id=random.randint(self.app.sesh_min,self.app.sesh_max)
-                row=cursor.execute(f"SELECT * FROM {self.mode} WHERE id={id}").fetchone()
-                self.sentence=row[1]
-                self.details=row[2]
-
-            self.target=self.sentence.split(' ')
-            self.typed=[None]*len(self.target)
-            self.typed_str=['']*len(self.target)
-            
-            self.at_word=0
-
-            self.correct=0
-            self.incorrect=0
-
-            self.start_time=None
-
-
     def on_mount(self): # runs after compose
-
         self.target_widget=self.query_one("#target")
+        self.load_screen()
 
     def render_text(self):
 
@@ -163,10 +167,13 @@ class StartType(BaseScreen):
             self.typed[self.at_word] = self.word.copy()
             self.typed_str[self.at_word]=self.curr
 
-            from .results import ResultScreen # lazy import to prevent circular import issue
-            self.app.switch_screen(ResultScreen(self.mode,self.sentence,self.details,raw_wpm=raw_wpm,wpm=wpm,accuracy=accuracy))
+            if(self.mode=="random"):
+                self.load_screen(wpm,raw_wpm,accuracy)
+            else:
+                from .results import ResultScreen # lazy import to prevent circular import issue
+                self.app.switch_screen(ResultScreen(self.mode,self.sentence,self.details,raw_wpm=raw_wpm,wpm=wpm,accuracy=accuracy))
 
     def compose_body(self):
         with CenterMiddle():
             with Vertical(classes='cont'):
-                    yield Static(Text(self.sentence+' ',style=str(self.app.theme_variables['primary-muted'])),id='target')
+                    yield Static('',id='target')

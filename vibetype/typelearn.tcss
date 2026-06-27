@@ -10,10 +10,11 @@
 
 .header{
     dock: top;
-    height: 1;
+    height: auto;
     content-align: center middle;
     background: $footer-background;
     color:$footer-foreground;
+    text-align:center;
 }
 
 OptionList{

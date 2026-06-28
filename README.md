@@ -39,41 +39,28 @@ VibeType is designed as a distraction-free space to type for fun, improve speed,
 
 ## Installation
 
-Clone the repository:
+Recommended:
 
 ```bash
-git clone https://github.com/BartikaKumar/vibetype.git
-cd vibetype
+pipx install vibetype
 ```
 
-### Using uv
+or using uv:
 
 ```bash
-uv sync
-uv run vibetype
+uv tool install vibetype
 ```
 
-### Using pip
-
-(venv optional but recommended)
+Alternatively, install it with pip:
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install vibetype
 ```
 
-Install and run:
+## Run
 
 ```bash
-pip install .
 vibetype
-```
-
-Alternatively, without installing the package:
-
-```bash
-pip install -r requirements.txt
-python3 -m vibetype
 ```
 
 ## Future Ideas

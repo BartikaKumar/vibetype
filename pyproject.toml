@@ -14,9 +14,6 @@ vibetype="vibetype.tui:main"
 [tool.uv]
 package=true
 
-[tool.setuptools]
-packages=["vibetype"]
-
 [tool.setuptools.packages.find]
 where=["."]
 include=["vibetype*"]

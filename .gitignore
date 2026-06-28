@@ -11,3 +11,6 @@ wheels/
 
 # Locally saved in-built data csvs for future reference
 csvs/
+
+# Local stats db
+/vibetype/data/vibetype_stats.db

@@ -7,6 +7,15 @@ from rich.table import Table
 
 class ShowStat(BaseScreen):
 
+    def action_focus_filter(self):
+        select=self.query_one(".dropdown")
+        #select.focus()
+        select.action_show_overlay()
+
+    BINDINGS=[
+        ("tab","focus_filter","Open Stats Filter")
+    ]
+
     def load_stats(self,mode=None):
         cursor=self.app.conn_stats.cursor()
         cursor.execute("""

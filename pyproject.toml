@@ -17,3 +17,9 @@ package=true
 [tool.setuptools.packages.find]
 where=["."]
 include=["vibetype*"]
+
+[tool.setuptools.package-data]
+vibetype=[
+    "*.tcss",
+    "data/*.db",
+]
